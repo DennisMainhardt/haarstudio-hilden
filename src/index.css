@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm & Inviting Palette with Original Orange Secondary */
+    --background: 40 50% 97%; /* Warm Cream/Linen */
+    --foreground: 20 10% 20%; /* Soft Charcoal */
+
+    --card: 0 0% 100%; /* Keep cards white */
+    --card-foreground: 20 10% 20%; /* Soft Charcoal on cards */
+
+    --popover: 0 0% 100%; /* Keep popovers white */
+    --popover-foreground: 20 10% 20%; /* Soft Charcoal on popovers */
+
+    --primary: 20 10% 20%; /* Primary is Soft Charcoal */
+    --primary-foreground: 40 50% 97%; /* Cream text on primary */
+
+    --secondary: 25 85% 55%; /* Original Vibrant Orange */
+    --secondary-foreground: 40 30% 98%; /* Original Light foreground for orange */
+
+    --muted: 40 50% 95%; /* Lighter warm cream */
+    --muted-foreground: 20 8% 35%; /* Darker warm gray for better contrast */
+
+    --accent: 25 85% 55%; /* Accent uses orange */
+    --accent-foreground: 40 30% 98%; /* Light text on accent */
+
+    --destructive: 0 84.2% 60.2%; /* Keep default red */
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 40 30% 90%; /* Warmer border */
+    --input: 40 30% 90%; /* Warmer input */
+    --ring: 25 85% 55%; /* Ring uses orange */
+
+    --radius: 0.75rem;
+  }
+
+  body {
+    /* Apply base colors, revert font changes */
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Revert heading font changes */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Keep other base styles */
+  .service-item {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:bg-primary/5;
+  }
+
+  .underline-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  img {
+    @apply w-full h-auto;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-md px-6 sm:px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex h-10 items-center justify-center rounded-md px-6 sm:px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-md hover:shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px];
+  }
+  
+  .section-title {
+    @apply relative inline-block pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-24 after:bg-secondary after:rounded-full;
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl;
+    }
+    
+    h2 {
+      @apply text-2xl;
+    }
+    
+    .section-padding {
+      @apply py-12;
+    }
+  }
+}
+
+/* Additional responsive utilities */
+@media (max-width: 768px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animation improvements */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
