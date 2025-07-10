@@ -1,8 +1,16 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "haarstudio-hilden",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern, responsive website for Haarstudio Hava Sarikaya - a professional hair salon in Hilden, Germany",
+  "author": "Dennis Mainhardt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DennisMainhardt/haarstudio-hilden.git"
+  },
+  "homepage": "https://haarstudio-hilden.vercel.app",
+  "keywords": ["react", "typescript", "tailwindcss", "vite", "hair-salon", "booking", "responsive"],
   "scripts": {
     "dev": "vite",
     "build": "vite build",

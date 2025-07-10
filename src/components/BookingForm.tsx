@@ -52,7 +52,7 @@ const BookingForm = () => {
     }
 
     // In a real application, this would send the booking to a backend
-    console.log("Buchung übermittelt:", formData);
+    // For demo purposes, we'll just show the success message
 
     toast({
       title: "Terminanfrage erhalten",
